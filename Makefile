@@ -9,30 +9,30 @@ init:
 	@echo "initialize remote state file"
 	cd layers/$(LAYER) && \
 	rm -rf .terraform/modules/ && \
-	terraform init -backend-config="access_key=$aws_accesskey" -backend-config="secret_key=$aws_secretkey"
+	terraform init -backend-config="access_key=$ aws_accesskey" -backend-config="secret_key=$ aws_secretkey"
 
 validate: init
 	@echo "running terraform validate"
 	cd layers/$(LAYER) && \
-	terraform validate -var "aws_accesskey=$aws_accesskey" -var "aws_secretkey=$aws_secretkey"
+	terraform validate -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	terraform plan -var "aws_accesskey=$aws_accesskey" -var "aws_secretkey=$aws_secretkey"
+	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
 
 apply: plan
 	@echo "running terraform apply"
 	cd layers/$(LAYER) && \
-	terraform apply -var "aws_accesskey=$aws_accesskey" -var "aws_secretkey=$aws_secretkey" -auto-approve 
+	terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve 
 
 
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
 	cd layers/$(LAYER) && \
-	terraform plan -var "aws_accesskey=$aws_accesskey" -var "aws_secretkey=$aws_secretkey" -destroy 
+	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -destroy 
 
 destroy: init
 	@echo "running terraform destroy"
 	cd layers/$(LAYER) && \
-	terraform  destroy -var "aws_accesskey=$aws_accesskey" -var "aws_secretkey=$aws_secretkey" -auto-approve
+	terraform  destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
