@@ -22,9 +22,11 @@ pipeline {
       
 		 steps {
 
+			 git 'https://github.com/nags28/terraform_jenkins_without_backend-.git'
                 script {
-                    if (params.env == 'dev')
-                        sh "make $INFRA_ACTION"
+                    sh 'chmod +x infra.sh'
+                       if (params.env == 'dev')
+			sh 'AWS_ACCOUNT_ID=378808291776  ./infra.sh'
                 }
             }
 		
