@@ -1,8 +1,8 @@
 #!groovy
 
 pipeline {
-    agent any
-	pipeline {
+    
+	
     agent any
 	environment {
         AWS_ROLE = "terraform1"
@@ -34,4 +34,4 @@ pipeline {
     }//stages
  
 }//pipeline
-}
+
