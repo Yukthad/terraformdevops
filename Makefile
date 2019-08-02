@@ -14,25 +14,23 @@ init:
 validate: init
 	@echo "running terraform validate"
 	cd layers/$(LAYER) && \
-	terraform validate -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
-
+	terraform validate -reconfigure -no-color
 plan: validate
 	@echo "running terraform plan"
 	cd layers/$(LAYER) && \
-	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey"
+	terraform plan -reconfigure -no-color
 
 apply: plan
 	@echo "running terraform apply"
 	cd layers/$(LAYER) && \
-	terraform apply -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve 
+	terraform apply -reconfigure -no-color -auto-approve
 
 
 plan-destroy: validate
 	@echo "running terraform plan -destroy"
 	cd layers/$(LAYER) && \
-	terraform plan -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -destroy 
-
+	terraform plan -reconfigure -no-color
 destroy: init
 	@echo "running terraform destroy"
 	cd layers/$(LAYER) && \
-	terraform  destroy -var "aws_accesskey=$ aws_accesskey" -var "aws_secretkey=$ aws_secretkey" -auto-approve
+	terraform  destroy -reconfigure -no-color -auto-approve
