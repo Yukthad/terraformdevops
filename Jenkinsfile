@@ -2,6 +2,11 @@
 
 pipeline {
     agent any
+	pipeline {
+    agent any
+	environment {
+        AWS_ROLE = "terraform1"
+    }
    
     parameters {
         choice(name: 'env', choices: 'dev', description: 'Select Environment')
