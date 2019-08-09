@@ -41,53 +41,5 @@ destroy: init
 	cd layers/$(LAYER) && \
 	terraform destroy -force -no-color
 
-	##terraform init -backend="true"
-
-validate: init
-	@echo "running terraform validate"
-	cd layers/$(LAYER) && \
-	terraform validate -no-color
-
-plan: validate
-	@echo "running terraform plan"
-	cd layers/$(LAYER) && \
-	terraform plan -no-color
-
-apply: plan
-	@echo "running terraform apply"
-	cd layers/$(LAYER) && \
-	terraform apply -auto-approve -no-color
-
-plan-destroy: validate
-	@echo "running terraform plan -destroy"
-	cd layers/$(LAYER) && \
-	terraform plan -destroy -no-color
-
-destroy: init
-	@echo "running terraform destroy"
-	cd layers/$(LAYER) && \
-	terraform destroy -force -no-color
-
-validate: init
-	@echo "running terraform validate"
-	cd layers/$(LAYER) && \
-	terraform validate -reconfigure -no-color
-plan: validate
-	@echo "running terraform plan"
-	cd layers/$(LAYER) && \
-	terraform plan -reconfigure -no-color
-
-apply: plan
-	@echo "running terraform apply"
-	cd layers/$(LAYER) && \
-	terraform apply -reconfigure -no-color -auto-approve
 
 
-plan-destroy: validate
-	@echo "running terraform plan -destroy"
-	cd layers/$(LAYER) && \
-	terraform plan -reconfigure -no-color
-destroy: init
-	@echo "running terraform destroy"
-	cd layers/$(LAYER) && \
-	terraform  destroy -reconfigure -no-color -auto-approve
