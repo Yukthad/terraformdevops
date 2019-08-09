@@ -13,7 +13,7 @@ pipeline {
         choice(name: 'action', choices: 'init\nplan\napply\nplan-destroy\ndestroy', description: 'Select Action')
     }
     stages {
-	  stages {
+	  
 	 stage('git') {
 		 
 	when {
@@ -41,7 +41,9 @@ pipeline {
             }
 		
         }
-    }//stages
- 
+    
+	
+	
+ }//stages
 }//pipeline
 
