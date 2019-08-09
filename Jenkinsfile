@@ -13,7 +13,19 @@ pipeline {
         choice(name: 'action', choices: 'init\nplan\napply\nplan-destroy\ndestroy', description: 'Select Action')
     }
     stages {
-	
+	  stages {
+	 stage('git') {
+		 
+	when {
+    expression { 
+        params.action == 'apply'
+        
+    }
+}
+            steps {
+                  git 'https://github.com/mani5a3/game-of-life.git'
+                 }
+                 }// stage git
         stage('terraform') {
             environment {
                 LAYER = "${params.env}"
@@ -21,8 +33,6 @@ pipeline {
             }
       
 		 steps {
-
-			 git 'https://github.com/nags28/terraform_jenkins_without_backend-.git'
                 script {
                     sh 'chmod +x infra.sh'
                        if (params.env == 'dev')
