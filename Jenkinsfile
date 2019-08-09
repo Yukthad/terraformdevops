@@ -23,7 +23,7 @@ pipeline {
     }
 }
             steps {
-                  git 'https://github.com/mani5a3/game-of-life.git'
+                  git 'https://github.com/nags28/terraform_jenkins.git'
                  }
                  }// stage git
         stage('terraform') {
