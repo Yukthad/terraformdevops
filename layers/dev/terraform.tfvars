@@ -1,6 +1,6 @@
 //ec2
-region = "us-east-2"
-availability_zones = "us-east-2a"
+region = "eu-central-1"
+availability_zones = "eu-central-1a"
 ami = "ami-02f706d959cedf892"
 instance_type = "t2.micro"
 
