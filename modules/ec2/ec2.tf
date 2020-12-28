@@ -2,7 +2,7 @@ resource "aws_instance" "ec2_pro" {
     availability_zone = "${var.availability_zones}"
     ami ="${var.ami}"
     instance_type = "${var.instance_type}"
-    key_name= "control_server"
+    key_name= "personal"
     security_groups= ["${aws_security_group.ALLTRAFFIC.name}"]
     
 }
