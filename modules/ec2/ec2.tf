@@ -29,7 +29,7 @@ egress {
     availability_zone = "us-east-2a"
     size = 1
     encrypted = true
-     kms_key_id = "${data.aws_kms_key.kms.arn}"  
+    //_key_id = "${data.aws_kms_key.kms.arn}"  
 
   
 }
