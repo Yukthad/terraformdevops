@@ -26,7 +26,7 @@ egress {
  }
 
  resource "aws_ebs_volume" "volume1" {
-    availability_zone = "us-east-2a"
+    availability_zone = "eu-central-1a"
     size = 1
     encrypted = true
     //_key_id = "${data.aws_kms_key.kms.arn}"  
