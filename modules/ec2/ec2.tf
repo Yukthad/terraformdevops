@@ -39,7 +39,9 @@ resource "aws_volume_attachment" "ebsattchment" {
     instance_id = "${aws_instance.ec2_pro.id}"
   
 }
+/*
 data "aws_kms_key" "kms" {
   key_id = "alias/alias"
   
 }
+*/
